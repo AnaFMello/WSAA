@@ -1,0 +1,44 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .weather-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin: auto;
+        }
+        .weather-card h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-card">
+        <h1>Weather in Presidente Prudente</h1>
+        {% if weather %}
+            <p><strong>Location:</strong> {{ weather.location }}</p>
+            <p><strong>Temperature:</strong> {{ weather.temperature }}°C</p>
+            <p><strong>Condition:</strong> {{ weather.condition }}</p>
+            <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+            <p><strong>Wind Speed:</strong> {{ weather.wind_speed }} kph</p>
+        {% else %}
+            <p>Error fetching weather data. Please try again later.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
